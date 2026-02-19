@@ -1,0 +1,276 @@
+@font-face {
+  font-family: 'The Season';
+  src: url('/fonts/The Seasons Bold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Avgron';
+  src: url('/fonts/avgron.TTF') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mosiette';
+  src: url('/fonts/mosiette.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helixa';
+  src: url('/fonts/Helixa-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gg-cream text-gg-slate antialiased;
+    /* Improve scroll performance */
+    overflow-x: hidden;
+  }
+
+  /* GPU acceleration for better performance */
+  .gpu-accelerate {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+
+  /* CSS containment for better rendering performance */
+  .contain-paint {
+    contain: paint;
+  }
+
+  .contain-layout {
+    contain: layout;
+  }
+
+  .contain-style {
+    contain: style;
+  }
+}
+
+/* Custom Scrollbar for a premium feel */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gg-cream;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gg-taupe/50 rounded-full hover:bg-gg-navy/70 transition-colors;
+}
+
+/* Marquee Animation */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marquee-reverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+  width: max-content;
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.animate-marquee-reverse {
+  animation: marquee-reverse 40s linear infinite;
+  width: max-content;
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.pause-on-hover:hover .animate-marquee {
+  animation-play-state: paused;
+}
+
+.pause-on-hover:hover .animate-marquee-reverse {
+  animation-play-state: paused;
+}
+
+ .gg-hero-frosted {
+   pointer-events: none;
+   filter: url(#gg-hero-frost-filter);
+   -webkit-mask-image: radial-gradient(circle calc(var(--reveal-size) + 0.1px) at var(--reveal-x) var(--reveal-y), rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 70%);
+   mask-image: radial-gradient(circle calc(var(--reveal-size) + 0.1px) at var(--reveal-x) var(--reveal-y), rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 70%);
+   -webkit-mask-repeat: no-repeat;
+   mask-repeat: no-repeat;
+   -webkit-mask-size: 100% 100%;
+   mask-size: 100% 100%;
+   will-change: -webkit-mask-image, mask-image;
+ }
+
+.memories-shell {
+  position: relative;
+}
+
+.memories-carousel {
+  display: block;
+  width: 100%;
+  touch-action: pan-y;
+  cursor: grab;
+}
+
+.memories-carousel:active {
+  cursor: grabbing;
+}
+
+.memories-visible {
+  display: block !important;
+}
+
+.memories-card {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(12px, 2vw, 24px);
+  padding: 0;
+}
+
+.memories-media {
+  position: relative;
+  height: 520px;
+  overflow: hidden;
+  border-radius: 18px;
+  background: #fff;
+}
+
+.memories-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.8s ease;
+}
+
+.memories-card:hover .memories-image {
+  transform: scale(1.04);
+}
+
+.memories-pill {
+  position: absolute;
+  left: 24px;
+  bottom: 24px;
+  padding: 10px 18px;
+  background: rgba(18, 63, 31, 0.85);
+  color: #fdf9f0;
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.memories-caption {
+  text-align: center;
+  font-size: 0.9rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: rgba(15, 23, 42, 0.9);
+}
+
+@media (max-width: 1024px) {
+  .memories-media {
+    height: 380px;
+    border-radius: 14px;
+  }
+}
+
+.memories-carousel-fallback {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+  gap: 1rem !important;
+  padding: 1rem !important;
+  overflow-x: auto !important;
+}
+
+.memories-carousel-fallback .memories-card {
+  width: 100% !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.memories-carousel-fallback .memories-media {
+  height: 380px !important;
+}
+
+.masonry-grid {
+  column-count: 3;
+  column-gap: 1.25rem;
+}
+
+.masonry-card {
+  break-inside: avoid;
+  margin-bottom: 1.25rem;
+}
+
+.masonry-image {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+@media (max-width: 1024px) {
+  .masonry-grid {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 640px) {
+  .masonry-grid {
+    column-count: 1;
+  }
+}
+
+/* Lenis Smooth Scroll */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.scrollbar-hide {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
