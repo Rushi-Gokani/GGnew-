@@ -2,7 +2,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import LoadingScreen from './components/LoadingScreen';
-import Lenis from 'lenis';
+import Lenis from './lenis';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import AnimatedRoutes from './components/AnimatedRoutes';

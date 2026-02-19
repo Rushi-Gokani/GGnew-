@@ -251,7 +251,7 @@ const advantages = [
     description:
       "Flawless execution, whether it is a private dinner for ten or a gala for two thousand. We scale our resources without compromising on the bespoke details.",
     image:
-       '/images/3.webp',
+      '/images/3.webp',
     icon: Users,
   },
   {
@@ -354,32 +354,28 @@ const steps = [
 
 const menuItems = [
   {
-    category: 'Appetizer',
-    name: 'Seared Scallops',
-    desc: 'Cauliflower purée, crispy pancetta, truffle oil drizzle.',
-    price: '$18',
-    image: '/images/food/Copy of B1621171.webp',
+    category: 'MODERN CHAAT',
+    name: 'Coconut Pani Puri',
+    desc: 'Coconut pani puri served in artisanal porcelain with refined presentation.',
+    image: 'public/images/food/coconut pani puri.png',
   },
   {
-    category: 'Main Course',
-    name: 'Herb-Crusted Lamb',
-    desc: 'Fondant potatoes, seasonal greens, red wine reduction.',
-    price: '$34',
-    image: '/images/food/Copy of B1621180.webp',
+    category: 'SIGNATURE STARTER',
+    name: 'Chapli Kebab',
+    desc: 'Chapli kebab paired with glazed sweet potato, fresh herbs, and vibrant chutney accents.',
+    image: 'public/images/food/chapli kebab sweet potato.png',
   },
   {
-    category: 'Dessert',
-    name: 'Dark Chocolate Tart',
-    desc: 'Sea salt caramel, raspberry coulis, gold leaf.',
-    price: '$14',
-    image: '/images/food/Copy of T1020423.webp',
+    category: 'EVENT STYLING',
+    name: 'Luxury Event Decoration',
+    desc: 'Elegant tablescapes with candlelight, florals, and bespoke luxury detailing.',
+    image: 'public/images/food/105.png',
   },
   {
-    category: 'Cocktail',
-    name: 'Rosemary Gin Fizz',
-    desc: 'Botanical gin, fresh lemon, rosemary syrup, egg white.',
-    price: '$12',
-    image: '/images/food/Copy of T1020454.webp',
+    category: 'CANAPÉ SELECTION',
+    name: ' Avocado Tartlet',
+    desc: 'Avocado tartlet topped with seasonal garnish and delicate edible florals.',
+    image: 'public/images/food/Avocado Tartlet.png',
   },
 ];
 
@@ -564,10 +560,10 @@ const AboutSection = React.memo(() => (
             <span className="text-gg-navy italic">Art & Connection</span>
           </h2>
           <p className="text-gg-slate/80 text-lg leading-relaxed mb-6">
-           Global Gourmet was built on a simple belief: food is not just served - it is felt. Rooted in culture, guided by craft, and delivered with precision, we design culinary experiences that connect people, places, and moments.
+            Global Gourmet was built on a simple belief: food is not just served - it is felt. Rooted in culture, guided by craft, and delivered with precision, we design culinary experiences that connect people, places, and moments.
           </p>
           <p className="text-gg-slate/80 text-lg leading-relaxed mb-8">
-        From intimate rituals to grand celebrations, every menu is shaped by intention, every detail by discipline, and every experience by soul.
+            From intimate rituals to grand celebrations, every menu is shaped by intention, every detail by discipline, and every experience by soul.
 
           </p>
           <div className="space-y-4">
@@ -970,7 +966,7 @@ const BrandSplitSection = React.memo(() => (
           </h2>
           <div className="w-12 h-0.5 bg-gold-400 mx-auto my-8 transition-all duration-500 group-hover:w-32" />
           <p className="text-white/90 max-w-xl mx-auto font-light text-xl opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-100 hidden md:block">
-Curated culinary experiences crafted with precision and passion.          </p>
+            Curated culinary experiences crafted with precision and passion.          </p>
         </motion.div>
         <div className="absolute bottom-12 md:bottom-24 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
           <span className="flex items-center gap-3 text-gold-400 text-sm font-semibold tracking-widest uppercase border border-gold-400/30 px-8 py-4 rounded-full hover:bg-gold-400 hover:text-gg-slate transition-all">
@@ -1379,14 +1375,7 @@ const MenuPreviewSection = React.memo(() => {
               <p className="text-stone-400">A glimpse into our current favorite creations.</p>
             </div>
           </FadeIn>
-          <FadeIn delay={0.2}>
-            <a
-              href="#"
-              className="text-gg-cream hover:text-white transition-colors border-b border-gg-cream pb-1"
-            >
-              View Full Menu PDF
-            </a>
-          </FadeIn>
+
         </div>
 
         {/* Mobile Slider Interface */}
@@ -1430,12 +1419,11 @@ const MenuPreviewSection = React.memo(() => {
                               {item.category}
                             </span>
                             <p className="text-white/85 text-sm leading-relaxed">{item.desc}</p>
-                            <div className="flex items-center justify-between pt-3">
-                              <span className="text-white font-semibold text-lg">{item.price}</span>
-                              <button className="inline-flex items-center gap-2 text-white text-sm font-semibold tracking-wide uppercase border border-white/40 rounded-full px-5 py-2 transition-all duration-300 group-hover:bg-white group-hover:text-black">
-                                Explore Now
-                                <span className="text-base leading-none">→</span>
-                              </button>
+                              <div className="flex items-center justify-center pt-3">
+                                <Link to="/contact" className="inline-flex items-center gap-3 text-white text-sm font-semibold tracking-wide uppercase border border-white/40 rounded-full px-5 py-2 transition-all duration-300 group-hover:bg-white group-hover:text-black">
+                                  Explore Now
+                                  <span className="text-base leading-none">→</span>
+                                </Link>
                             </div>
                           </div>
                         </div>
@@ -1516,12 +1504,11 @@ const MenuPreviewSection = React.memo(() => {
                         {item.category}
                       </span>
                       <p className="text-white/85 text-sm leading-relaxed">{item.desc}</p>
-                      <div className="flex items-center justify-between pt-3">
-                        <span className="text-white font-semibold text-lg">{item.price}</span>
-                        <button className="inline-flex items-center gap-2 text-white text-sm font-semibold tracking-wide uppercase border border-white/40 rounded-full px-5 py-2 transition-all duration-300 group-hover:bg-white group-hover:text-black">
+                      <div className="flex items-center justify-center pt-3">
+                        <Link to="/contact" className="inline-flex items-center gap-2 text-white text-sm font-semibold tracking-wide uppercase border border-white/40 rounded-full px-5 py-2 transition-all duration-300 group-hover:bg-white group-hover:text-black">
                           Explore Now
                           <span className="text-base leading-none">→</span>
-                        </button>
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -2034,7 +2021,7 @@ export default function Home() {
       <VideoSection />
       <ServicesSection />
 
-       <MenuPreviewSection /> 
+      <MenuPreviewSection />
       <MemoriesSection />
       <TestimonialsSection />
 
